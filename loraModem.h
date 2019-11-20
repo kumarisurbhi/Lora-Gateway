@@ -247,17 +247,17 @@ struct pins {
 // MOSI == GPIO27/ PIN27
 // RST  == GPIO14/ PIN14
 struct pins {
-  uint8_t dio0 = D1;
-  uint8_t dio1 = D1;
-  uint8_t dio2 = D1;
-  uint8_t ss = D8;
-  uint8_t rst = D0; // Reset not used
+  uint8_t dio0 = 2;
+  uint8_t dio1 = 2;
+  uint8_t dio2 = 2;
+  uint8_t ss = 5;
+  uint8_t rst = 14; // Reset not used
 } pins;
-#define SCK  D5
-#define MISO D6
-#define MOSI D7
-#define SS  D8
-#define DIO0 D1
+#define SCK  18
+#define MISO 19
+#define MOSI 23
+#define SS  5
+#define DIO0 2
 
 #endif
 
@@ -524,4 +524,3 @@ struct LoraUp {
 #define MGT_RESET					0x15		// Not a LoRa Gateway Spec message
 #define MGT_SET_SF					0x16
 #define MGT_SET_FREQ				0x17
-
