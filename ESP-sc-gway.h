@@ -43,7 +43,7 @@
 
 // Define the LoRa Frequncy band that is used. TTN Supported values are 915MHz, 868MHz and 433MHz.
 // So supported values are: 433 868 915
-#define _LFREQ 433
+#define _LFREQ 868
 
 // The spreading factor is the most important parameter to set for a single channel
 // gateway. It specifies the speed/datarate in which the gateway and node communicate.
@@ -66,10 +66,10 @@
 // Definitions for the admin webserver.
 // A_SERVER determines whether or not the admin webpage is included in the sketch.
 // Normally, leave it in!
-#define A_SERVER 1				// Define local WebServer only if this define is set
-#define A_REFRESH 1				// Allow the webserver refresh or not?
-#define A_SERVERPORT 80			// Local webserver port (normally 80)
-#define A_MAXBUFSIZE 192		// Must be larger than 128, but small enough to work
+#define A_SERVER 1        // Define local WebServer only if this define is set
+#define A_REFRESH 1       // Allow the webserver refresh or not?
+#define A_SERVERPORT 80     // Local webserver port (normally 80)
+#define A_MAXBUFSIZE 192    // Must be larger than 128, but small enough to work
 
 // Definitions for over the air updates. At the moment we support OTA with IDE
 // Make sure that tou have installed Python version 2.7 and have Bonjour in your network.
@@ -81,12 +81,12 @@
 // We support a few pin-out configurations out-of-the-box: HALLARD, COMPRESULT and TTGO ESP32.
 // If you use one of these two, just set the parameter to the right value.
 // If your pin definitions are different, update the loraModem.h file to reflect these settings.
-//	1: HALLARD
-//	2: COMRESULT pin out
-//	3: ESP32 Wemos pin out
-//	4: ESP32 TTGO pinning (should work for 433 and OLED too).
-//	5: ESP32 TTGO EU433 MHz with OLED
-//	6: Other, define your own in loraModem.h
+//  1: HALLARD
+//  2: COMRESULT pin out
+//  3: ESP32 Wemos pin out
+//  4: ESP32 TTGO pinning (should work for 433 and OLED too).
+//  5: ESP32 TTGO EU433 MHz with OLED
+//  6: Other, define your own in loraModem.h
 #define _PIN_OUT 6
 
 // Gather statistics on sensor and Wifi status
@@ -108,11 +108,11 @@
 // In this case, the frequency and spreading factor for downlink messages is adapted by this
 // gateway
 // NOTE: If your node has only one frequency enabled and one SF, you must set this to 1
-//		in order to receive downlink messages
+//    in order to receive downlink messages
 // NOTE: In all other cases, value 0 works for most gateways with CAD enabled
-#define _STRICT_1CH	0
+#define _STRICT_1CH 0
 
-// Allows configuration through WifiManager AP setup. Must be 0 or 1					
+// Allows configuration through WifiManager AP setup. Must be 0 or 1          
 #define WIFIMANAGER 0
 
 // Define the name of the accesspoint if the gateway is in accesspoint mode (is
@@ -134,7 +134,7 @@
 // sensible results on display
 // OLED==0; No OLED display connected
 // OLED==1; 0.9 Oled Screen based on SSD1306
-// OLED==2;	1"3 Oled screens for Wemos, 128x64 SH1106
+// OLED==2; 1"3 Oled screens for Wemos, 128x64 SH1106
 #define OLED 0
 
 
@@ -145,8 +145,8 @@
 // in this case we would allow it to use the SERVER UDP connection to receive 
 // messages as well.
 // NOTE: Be aware that these messages are NOT LoRa and NOT LoRa Gateway spec compliant.
-//	However that should not interfere with regular gateway operation but instead offer 
-//	functions to set/reset certain parameters from remote.
+//  However that should not interfere with regular gateway operation but instead offer 
+//  functions to set/reset certain parameters from remote.
 #define GATEWAYMGT 0
 
 // Do extensive loggin
@@ -158,24 +158,24 @@
 #define STAT_LOG 1
 
 
-// Name of he configfile in SPIFFs	filesystem
+// Name of he configfile in SPIFFs  filesystem
 // In this file we store the configuration and other relevant info that should
-// survive a reboot of the gateway		
+// survive a reboot of the gateway    
 #define CONFIGFILE "/gwayConfig.txt"
 
 // Set the Server Settings (IMPORTANT)
-#define _LOCUDPPORT 1700					// UDP port of gateway! Often 1700 or 1701 is used for upstream comms
+#define _LOCUDPPORT 1700          // UDP port of gateway! Often 1700 or 1701 is used for upstream comms
 
 // Timing
-#define _MSG_INTERVAL 15					// Reset timer in seconds
-#define _PULL_INTERVAL 55					// PULL_DATA messages to server to get downstream in milliseconds
-#define _STAT_INTERVAL 120					// Send a 'stat' message to server
-#define _NTP_INTERVAL 3600					// How often do we want time NTP synchronization
-#define _WWW_INTERVAL	60					// Number of seconds before we refresh the WWW page
+#define _MSG_INTERVAL 15          // Reset timer in seconds
+#define _PULL_INTERVAL 55         // PULL_DATA messages to server to get downstream in milliseconds
+#define _STAT_INTERVAL 120          // Send a 'stat' message to server
+#define _NTP_INTERVAL 3600          // How often do we want time NTP synchronization
+#define _WWW_INTERVAL 60          // Number of seconds before we refresh the WWW page
 
 // MQTT definitions, these settings should be standard for TTN
 // and need not changing
-#define _TTNPORT 1700						// Standard port for TTN
+#define _TTNPORT 1700           // Standard port for TTN
 #define _TTNSERVER "asia-se.thethings.network"
 
 // If you have a second back-end server defined such as Semtech or loriot.io
@@ -184,27 +184,27 @@
 // Port is UDP port in this program
 //
 // Default for testing: Switched off
-//#define _THINGPORT 1700					// e.g. 1700
-//#define _THINGSERVER "<westenberg.org>"	// Server URL of the LoRa-udp.js handler
+//#define _THINGPORT 1700         // e.g. 1700
+//#define _THINGSERVER "<westenberg.org>" // Server URL of the LoRa-udp.js handler
 
 // This defines whether or not we would use the gateway as 
 // as sort of backend system which decodes messages (see sensor.h file)
-#define _LOCALSERVER 0						// See server definitions for decodes
+#define _LOCALSERVER 0            // See server definitions for decodes
 
 // Gateway Ident definitions
-#define _DESCRIPTION "ESP Gateway"			// Name of the gateway
-#define _EMAIL "itsmesurbhi27@gmail.com"		// Owner
+#define _DESCRIPTION "ESP Gateway"      // Name of the gateway
+#define _EMAIL "itsmesurbhi27@gmail.com"    // Owner
 #define _PLATFORM "ESP8266"
 #define _LAT 28.5456443
 #define _LON 77.19607865
-#define _ALT 228								// Altitude
+#define _ALT 228                // Altitude
 
 // ntp
 // Please add daylight saving time to NTP_TIMEZONES when desired
-#define NTP_TIMESERVER "in.pool.ntp.org"	// Country and region specific
-#define NTP_TIMEZONES	2					// How far is our Timezone from UTC (excl daylight saving/summer time)
-#define SECS_IN_HOUR	3600
-#define NTP_INTR 0							// Do NTP processing with interrupts or in loop();
+#define NTP_TIMESERVER "in.pool.ntp.org"  // Country and region specific
+#define NTP_TIMEZONES 2         // How far is our Timezone from UTC (excl daylight saving/summer time)
+#define SECS_IN_HOUR  3600
+#define NTP_INTR 0              // Do NTP processing with interrupts or in loop();
 
 
 // Defines whether the gateway will also report sensor/status value on MQTT
@@ -225,11 +225,11 @@
 #endif
 
 // Define the correct radio type that you are using
-#define CFG_sx1276_radio		
+#define CFG_sx1276_radio    
 //#define CFG_sx1272_radio
 
 // Serial Port speed
-#define _BAUDRATE 115200					// Works for debug messages to serial momitor
+#define _BAUDRATE 115200          // Works for debug messages to serial momitor
 
 // We can put the gateway in such a mode that it will (only) recognize
 // nodes that are put in a list of trusted nodes 
@@ -237,7 +237,7 @@
 // 0: Do not use names for trusted Nodes
 // 1: Use the nodes as a translation tabel for hex codes to names (in TLN)
 // 2: Same as 1, but is nodes NOT in the nodes list below they are NOT
-//		forwarded or counted! (not yet fully implemented)
+//    forwarded or counted! (not yet fully implemented)
 #define TRUSTED_NODES 1
 #define TRUSTED_DECODE 1
 
@@ -247,21 +247,21 @@
 // When using the WiFiManager, we will overwrite the first entry with the 
 // accesspoint we last connected to with WifiManager
 // NOTE: Structure needs at least one (empty) entry.
-//		So WPASIZE must be >= 1
+//    So WPASIZE must be >= 1
 struct wpas {
-	char login[32];							// Maximum Buffer Size (and allocated memory)
-	char passw[64];
+  char login[32];             // Maximum Buffer Size (and allocated memory)
+  char passw[64];
 };
 
 // Please fill in at least ONE SSID and password from your own WiFI network
 // below. This is needed to get the gateway working
 // Note: DO NOT use the first and the last line of the stucture, these should be empty strings and
-//	the first line in te struct is reserved for WifiManager.
+//  the first line in te struct is reserved for WifiManager.
 //
 wpas wpa[] = {
-	{ "" , "" },							// Reserved for WiFi Manager
-	{ "NETGEAR98", "heisenberg" },
-	//{ "ape", "beer" }
+  { "" , "" },              // Reserved for WiFi Manager
+  { "le", "hellohello1234" },
+  //{ "ape", "beer" }
 };
 
 // For asserting and testing the following defines are used.
